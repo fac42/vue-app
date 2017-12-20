@@ -1,0 +1,132 @@
+// Version 1.0.2
+// Variables
+// Text
+$font-family: 'Dosis', Arial, sans-serif;
+$dark-text: #333;
+$light-text: #666;
+$lighter-text: #888;
+// Colours
+$primary-color: #f6f6f6;
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+    font-family: $font-family;
+    font-size: 16px;
+    line-height: 1.4;
+    color: $light-text;
+    background: $primary-color;
+}
+
+#root {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+  background-size: 250% 250%;
+  animation: gradientChange 4.5s ease infinite alternate;
+  @keyframes gradientChange {
+    0% {background-position:0% 50%}
+    50% {background-position:100% 50%}
+    100% {background-position:0% 50%}
+  }
+  margin: 0 0 2rem 0;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 1rem;
+  background: white;
+  box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all .2s linear;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+  transform: translate3D(0, -2px, 0);
+}
+
+.card-content {
+  padding: 1rem 1rem 5rem;
+}
+
+.card-details {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.card-details-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem 1rem;
+  p {
+    color: $lighter-text;
+    margin: 0 0.5rem;
+  }
+  p:nth-child(1) span {
+    color: #fbc2eb;
+    font-weight: 700;
+  }
+  p:nth-child(2) span {
+    color: #8fd3f4;
+    font-weight: 700;
+  }
+  p:nth-child(3) span {
+    color: #ffc3a0;
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    flex: 1 1 calc(50% - 2rem);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .card {
+    flex: 1 1 calc(33% - 2rem);
+  }
+}
+
+.card:nth-child(2n) h1 {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.card:nth-child(4n) h1 {
+  background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.card:nth-child(5n) h1 {
+  background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+}
