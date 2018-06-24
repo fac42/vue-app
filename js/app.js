@@ -1,7 +1,10 @@
 var card = new Vue({
   el: '#app',
-  data: {
-      movies: []
+  data() {
+      return {
+        query: '',
+        movies: []
+      }
   },
   mounted() {
       this.getData();
@@ -18,9 +21,20 @@ var card = new Vue({
           });
       }
   },
+  computed: {
+    filteredMovies: function () {
+      let self = this;
+      if(!this.query) {
+        return this.movies;
+      }
+      return this.movies.filter(movie => {
+        return movie.title.toLowerCase().indexOf(self.query.toLowerCase()) !== -1 || movie.release_date.indexOf(self.query.toString()) !== -1 || movie.director.toLowerCase().indexOf(self.query.toLowerCase()) !==-1;
+      })
+    }
+  },
   filters: {
     shortenText(text) {
-      return text.substring(0, 250);
+      return text.substring(0, 300);
       },
       addEllipses(text) {
         return `${text}...`;
