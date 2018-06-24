@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <title>Ghibli App</title>
     <meta name="author" content="Alex Chang">
-    <meta name="description" content="A Ghibli Movie App rewritten in Vue.js">
+    <meta name="description" content="Ghibli Movie App rewritten in Vue.js">
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
     <div id="root">
-       <img src="img/header.png" alt="Studio Ghibli Logo">
+       <img src="./img/header.png" alt="Studio Ghibli Logo">
         <div class="container" id="app">
-          <div class="card" v-for="movie in movies">
+          <div class="search-form-wrapper">
+            <input class="search-input" v-model="query" type="text" placeholder="Search by title, year, director">
+          </div>
+          <div class="card" v-for="movie in filteredMovies">
             <div class="card-content">
                 <h1 class="title">
-                  {{movie.title}}
+                  {{ movie.title }}
                 </h1>
                 <p>
-                  {{movie.description | shortenText | addEllipses}}
+                  {{ movie.description | shortenText | addEllipses }}
                 </p>
                 <div class="card-details">
                   <div class="card-details-inner">
-                    <p><span>Director: </span>{{movie.director}}</p>
-                    <p><span>Release Date: </span> {{movie.release_date}}</p>
-                    <p><span>RT Score: </span> {{movie.rt_score}}</p>
+                    <p><span>Director: </span>{{ movie.director }}</p>
+                    <p><span>Release Date: </span> {{ movie.release_date }}</p>
+                    <p><span>RT Score: </span> {{ movie.rt_score }}</p>
                   </div>
                 </div>
               </div>
