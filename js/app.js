@@ -33,11 +33,12 @@ var card = new Vue({
     }
   },
   filters: {
-    shortenText(text) {
-      return text.substring(0, 300);
-      },
-      addEllipses(text) {
-        return `${text}...`;
-      }
+    truncateText(text, limit) {
+      if (!limit) return;
+      let content = text.trim();
+      content = content.split(' ').slice(0, limit);
+      content = `${content.join(' ')}...`
+      return content;
+    }
   }
 });
