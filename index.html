@@ -22,7 +22,7 @@
                   {{ movie.title }}
                 </h1>
                 <p>
-                  {{ movie.description | shortenText | addEllipses }}
+                  {{ movie.description | truncateText(50) }}
                 </p>
                 <div class="card-details">
                   <div class="card-details-inner">
