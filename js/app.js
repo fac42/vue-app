@@ -6,9 +6,6 @@ var card = new Vue({
         movies: []
       }
   },
-  mounted() {
-      this.getData();
-  },
   methods: {
       getData: function () {
         let card = this;
@@ -31,6 +28,9 @@ var card = new Vue({
         return movie.title.toLowerCase().indexOf(self.query.toLowerCase()) !== -1 || movie.release_date.indexOf(self.query.toString()) !== -1 || movie.director.toLowerCase().indexOf(self.query.toLowerCase()) !==-1;
       })
     }
+  },
+  mounted() {
+      this.getData();
   },
   filters: {
     truncateText(text, limit) {
