@@ -12,8 +12,7 @@ var card = new Vue({
           axios.get('https://ghibliapi.herokuapp.com/films')
             .then(response => {
               card.movies = response.data;
-          })
-              .catch(error => {
+          }).catch(error => {
                 console.log(error);  
           });
       }
