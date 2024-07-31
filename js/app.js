@@ -9,7 +9,7 @@ var card = new Vue({
   methods: {
       getData: function () {
         let card = this;
-          axios.get('https://ghibliapi.herokuapp.com/films')
+          axios.get('https://ghibli.rest/films')
             .then(response => {
               card.movies = response.data;
           }).catch(error => {
